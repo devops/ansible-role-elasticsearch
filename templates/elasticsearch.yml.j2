@@ -1,0 +1,28 @@
+# ---------------------------------- Cluster -----------------------------------
+cluster.name: {{ elasticsearch_cluster_name }}
+
+# ------------------------------------ Node ------------------------------------
+node.name: {{ elasticsearch_node_name }}
+node.rack: {{ elasticsearch_node_rack }}
+
+# ----------------------------------- Paths ------------------------------------
+path.data: {{ elasticsearch_path_data }}
+path.logs: {{ elasticsearch_path_logs }}
+
+# ----------------------------------- Memory -----------------------------------
+
+
+# ---------------------------------- Network -----------------------------------
+network.host: {{ elasticsearch_network_host }}
+http.port: {{ elasticsearch_http_port }}
+
+# --------------------------------- Discovery ----------------------------------
+{%  if elasticsearch_cluster %}
+discovery.zen.minimum_master_nodes: {{ elasticsearch_zen_minimum_master_nodes }}
+discovery.zen.ping.unicast.hosts: [{{ ",".join(elasticsearch_zen_ping_unicast_hosts) }}]
+{% endif %}
+
+# ---------------------------------- Gateway -----------------------------------
+
+
+# ---------------------------------- Various -----------------------------------

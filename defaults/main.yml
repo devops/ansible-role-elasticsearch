@@ -1,0 +1,22 @@
+---
+# defaults file for ansible-role-elasticsearch
+
+elasticsearch_packages:
+  - java
+  - elasticsearch
+
+elasticsearch_repo: True
+elasticsearch_repo_baseurl: 'https://packages.elastic.co'
+
+# conf
+elasticsearch_base_dir: '/var/lib/elasticsearch'
+elasticsearch_cluster_name: 'elastic'
+elasticsearch_node_name: '{{ ansible_hostname }}'
+elasticsearch_node_rack: 'r1'
+elasticsearch_path_data: '{{ elasticsearch_base_dir }}/data'
+elasticsearch_path_logs: '{{ elasticsearch_base_dir }}/logs'
+elasticsearch_network_host: '127.0.0.1'
+elasticsearch_http_port: 9200
+elasticsearch_cluster: False
+elasticsearch_zen_minimum_master_nodes: 1
+elasticsearch_zen_ping_unicast_hosts: []

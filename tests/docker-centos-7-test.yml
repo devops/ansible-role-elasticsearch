@@ -1,0 +1,8 @@
+---
+# test file
+
+- name: Install elasticsearch.
+  hosts: localhost
+  roles:
+    - role: role_under_test
+      elasticsearch_base_dir: "/data/elasticsearch"

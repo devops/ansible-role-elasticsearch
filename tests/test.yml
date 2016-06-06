@@ -1,0 +1,16 @@
+---
+# test file
+
+- name: Install elasticsearch.
+  hosts: servers
+  roles:
+    - role: ansible-role-elasticsearch
+      elasticsearch_base_dir: '/data/elasticsearch'
+      elasticsearch_packages:
+        - java
+        - /tmp/elasticsearch-2.3.3.rpm
+      elasticsearch_network_host: '{{ ansible_default_ipv4.address }}'
+    # test cluster
+    #   elasticsearch_cluster: True
+    #   elasticsearch_zen_minimum_master_nodes: 3
+    #   elasticsearch_zen_ping_unicast_hosts: ['"172.23.192.111"', '"172.23.192.112"']
